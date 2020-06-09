@@ -37,7 +37,8 @@ Create Wialon API Client object using the following code:
 
 ## 4. API Requests
 
-You can find the full list of Wialon API methods  [here]([https://sdk.wialon.com/wiki/ru/start](https://sdk.wialon.com/wiki/ru/start)).
+You can find the full list of Wialon API methods  here
+https://sdk.wialon.com/wiki/ru/start
 
 ### Request sample
 
@@ -48,8 +49,7 @@ Example of calling method  **avl_evts**:
     $wialonRequest->sid='your sid';
     try {
         $result = $wialonRequest->request(
-            'avl_evts',
-            []
+            'avl_evts'
         );
     } catch(\Exception  $e) {
         //some action

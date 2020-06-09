@@ -111,7 +111,7 @@ class Action {
      * @return array
      * @throws \valentinbv\Wialon\Exception\WialonRequestException
      */
-    public function request(string $svc, array $params): array
+    public function request(string $svc, array $params = []): array
     {
         try {
             $response = $this->httpClient->request('POST', $this->host, [
