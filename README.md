@@ -42,17 +42,18 @@ https://sdk.wialon.com/wiki/ru/start
 
 ### Request sample
 
-Example of calling method  **avl_evts**:
+Example of calling method  **core/get_account_data**:
 
     $httpClient = new GuzzleHttp\Client();
     $wialonRequest = new valentinbv\Wialon\Request\Action($httpClient);
     $wialonRequest->sid='your sid';
     try {
         $result = $wialonRequest->request(
-            'avl_evts'
+            'core/get_account_data',
+            ['type' => 2]
         );
-    } catch(\Exception  $e) {
-        //some action
+        } catch(\Exception $e) {
+            //some action
     }
 
 
