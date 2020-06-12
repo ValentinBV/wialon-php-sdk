@@ -37,7 +37,7 @@ Create Wialon API Client object using the following code:
 
 ## 4. API Requests
 
-You can find the full list of Wialon API methods  [here]([https://sdk.wialon.com/wiki/en/start](https://sdk.wialon.com/wiki/en/start)).
+You can find the full list of Wialon API methods  [https://sdk.wialon.com/wiki/en/start](https://sdk.wialon.com/wiki/en/start).
 
 ### Request sample
 
