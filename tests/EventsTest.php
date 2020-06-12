@@ -9,12 +9,12 @@ use GuzzleHttp\Client;
 use Psr\Http\Message\MessageInterface;
 use Psr\Http\Message\StreamInterface;
 use GuzzleHttp\Exception\TransferException;
-use valentinbv\Wialon\Request\Action;
+use valentinbv\Wialon\Request\Extra\Events;
 use valentinbv\Wialon\Exception\WialonRequestException;
 use valentinbv\Wialon\Exception\ReadOnlyException;
 use valentinbv\Wialon\Exception\InexistentPropertyException;
 
-class ActionTest extends TestCase
+class EventsTest extends TestCase
 {
     private $source;
     private $testSid;
@@ -37,13 +37,13 @@ class ActionTest extends TestCase
         $stubResultQueryContents->method('getContents')
             ->willReturn($this->requestDataSuccess);
         
-        $this->source = new Action($stubClient);
+        $this->source = new Events($stubClient);
     }
 
     public function testExecuteSuccess()
     {
         $this->assertEquals(
-            $this->source->execute('testSvc', ['result' => 'success']), 
+            $this->source->execute(), 
             \json_decode($this->requestDataSuccess, true)
         );
     }
@@ -53,10 +53,10 @@ class ActionTest extends TestCase
         $stubClient = $this->createMock(Client::class);
         $stubClient->method('request')
             ->will($this->throwException(new TransferException));
-        $this->source = new Action($stubClient);
+        $this->source = new Events($stubClient);
 
         try {
-            $this->source->execute('testSvc', ['result' => 'success']);
+            $this->source->execute();
         } catch (WialonRequestException $e) {
             $this->assertInstanceOf(WialonRequestException::class, $e);
         }

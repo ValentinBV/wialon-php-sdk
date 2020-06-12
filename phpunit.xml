@@ -11,7 +11,9 @@
     verbose="true">
     <testsuites>
         <testsuite name="Source">
+            <file>tests/BaseRequestTest.php</file>
             <file>tests/ActionTest.php</file>
+            <file>tests/EventsTest.php</file>
         </testsuite>
     </testsuites>
 </phpunit>
